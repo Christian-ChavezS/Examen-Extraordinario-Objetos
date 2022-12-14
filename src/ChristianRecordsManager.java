@@ -33,10 +33,9 @@ public class ChristianRecordsManager {
 
             throw new RuntimeException(e);
         }
-        /*
-        if(records >= gameRecords.size() + 1) {
-
-        }*/
+        if(records < gameRecords.size()) {
+            gameRecords.remove(gameRecords.size() - 1);
+        }
     }
 
 
