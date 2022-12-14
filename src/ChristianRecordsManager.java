@@ -3,7 +3,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
+import static java.util.Comparator.naturalOrder;
 
 public class ChristianRecordsManager {
     private String filename;
@@ -19,7 +22,7 @@ public class ChristianRecordsManager {
 
     public void save(GameRecord record) {
         gameRecords.add(record);
-        gameRecords.sort();
+        gameRecords.sort(Comparator.comparingInt(GameRecord::getScore));
         File file = new File(filename);
 
         try {
@@ -30,8 +33,10 @@ public class ChristianRecordsManager {
 
             throw new RuntimeException(e);
         }
+        /*
+        if(records >= gameRecords.size() + 1) {
 
-
+        }*/
     }
 
 
